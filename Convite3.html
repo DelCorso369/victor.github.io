@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Convite Divertido para Sair</title>
+    <link rel="stylesheet" type="text/css" href="seuarquivo.css"> <!-- Substitua "seuarquivo.css" pelo caminho correto do seu arquivo CSS -->
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffefcc; /* Cor de fundo amarela */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #convite {
+            font-size: 28px;
+            color: #ff3b3b; /* Texto vermelho */
+            margin-bottom: 20px;
+        }
+
+        #opcoes {
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            background-color: #ff3b3b; /* Vermelho */
+            color: #fff; /* Texto branco */
+            padding: 20px 40px; /* Tamanho dos botões */
+            border: none;
+            cursor: pointer;
+            margin: 0 10px; /* Espaçamento entre os botões */
+            font-weight: bold;
+            border-radius: 5px; /* Cantos arredondados */
+            transition: background-color 0.3s; /* Efeito de transição de cor ao passar o mouse */
+        }
+
+        button:hover {
+            background-color: #e62626; /* Cor de fundo mais escura ao passar o mouse */
+        }
+
+        .message {
+            font-size: 20px;
+            color: #333;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="convite">
+        Aceita sair comigo?
+    </div>
+    <div id="opcoes">
+        <button id="sim" onclick="responder('sim')">Sim</button>
+        <button id="nao" onclick="moverNao()">Não</button>
+    </div>
+    <div class="message" id="messageDiv"></div>
+
+    <script>
+        var naoButton = document.getElementById('nao');
+        var originalButtonText = 'Não';
+        var funnyMessages = [
+            'A vida é curta, diga Sim!',
+            'Eu prometo não contar piadas engraçadas se você disser Sim.',
+            'Se você disser Não, o botão se moverá de novo!',
+            'Pense novamente... Sim é a resposta certa!',
+        ];
+        var messageDiv = document.getElementById('messageDiv');
+
+        function moverNao() {
+            var randomMessage = funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
+            messageDiv.innerHTML = randomMessage;
+
+            var maxX = window.innerWidth - naoButton.clientWidth;
+            var maxY = window.innerHeight - naoButton.clientHeight;
+
+            var randomX = Math.floor(Math.random() * maxX);
+            var randomY = Math.floor(Math.random() * maxY);
+
+            naoButton.style.position = 'absolute';
+            naoButton.style.left = randomX + 'px';
+            naoButton.style.top = randomY + 'px';
+        }
+
+        function responder(escolha) {
+            if (escolha === 'sim') {
+                window.location.href = 'https://youtube.com/shorts/idN_nQuPEoI?si=xlML_G-oRP8peGr0';
+            }
+        }
+    </script>
+</body>
+</html>
